@@ -1,0 +1,21 @@
+#login{
+    margin-top: 200px;
+}
+#zipCode {
+    width: 132px;
+}
+.cover {
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin: 30px 30px 30px 30px;
+}
+#genre{  
+    padding-top: 100px;
+    text-align: center;
+
+}
+    img {
+    height: 200px;
+    width: 200px;
+}
