@@ -1,0 +1,50 @@
+body{
+    background-color: black;
+}
+.cover {
+    height: 200px;
+    width: 200px;
+    float: left;
+    margin: 30px 30px 30px 30px;
+  position: relative;
+  text-align: center;
+}
+#genre{  
+    padding-top: 100px;
+    text-align: center;
+
+}
+img {
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+}
+.cover:hover .overlay{
+    opacity: 1;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0px;
+  right: 0px;
+  height: 200px;
+  width: 200px;
+  opacity: 0;
+  border-radius: 25px;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+.text{
+    padding-top: 35%;
+    font: bolder;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.next {
+    width: 100px;
+    margin-right: 70px;
+}
+.prev {
+    width: 100px;
+}
