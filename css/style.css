@@ -90,15 +90,15 @@ body a:hover {
   display: flex;
   flex-flow: row wrap;
 }
- .content__left {
+.content__left {
   width: 15%;
-} 
- .content__middle {
+}
+.content__middle {
   width: 100%;
-} 
- .content__right {
+}
+.content__right {
   width: 15%;
-} 
+}
 @media (max-width: 1400px) {
   /* .content__left {
     width: 20%;
@@ -118,7 +118,6 @@ body a:hover {
     width: 100%;
   }
 }
-
 
 .playing {
   background: #282828;
@@ -634,7 +633,7 @@ body a:hover {
 .tracks .track__title.featured .feature:hover {
   cursor: pointer;
   color: #c8c8c8;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .tracks .track__explicit .label {
   border: 1px;
@@ -972,7 +971,7 @@ button:hover {
 
 .button-dark {
   background: transparent;
-    color: white;
+  color: white;
 
   border: 1px solid #fff;
 }
@@ -989,6 +988,6 @@ button:hover {
   border: 1px solid #c8c8c8;
 }
 .button-light:hover {
-  border-color: white;
-  color: white;
+  border: 1px solid #fd4d00;
+  color: #fd4d00;
 }
