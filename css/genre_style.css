@@ -3,6 +3,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 } 
+/* this is the genre css*/
 .cover {
     height: 200px;
     width: 200px;
@@ -52,4 +53,14 @@ img {
 }
 .prev {
     width: 100px;
+}
+/* this is the genre css*/
+
+#zipCode{
+    background-color:none;
+}
+
+#genrePage{
+    display: flex;
+
 }
