@@ -7,14 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/genre_style.css">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|PT+Serif+Caption&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/genre_style.css">
     <title>Document</title>
 </head>
 
 <body>
     <div class="container">
-        <div class="row">
+        <!-----------------------ZIP CODE DIV---------------------------->
+        <div class=" row" id="zipCode" style='margin-top: 25%'>
+            <div class="col-md-4"></div>
+            <div class="col-md-4 my-auto vertical-center">
+                <div class="jumbotron vertical-center text-center" style="background:transparent !important">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label class="sr-only">Enter Zip Code</label>
+                        <input type="ZipCode" class="form-control" placeholder="Zip Code">
+                    </div>
+                    <a class="btn btn-primary btn-lg" style="border-radius:30px" href="#" role="button">Generate
+                        Playlist!</a>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <!-----------------------ZIP CODE DIV---------------------------->
+        <!------------------------Genre Div----------------------------------->
+        <div class="row" id="genrePage">
             <div class="col-md-12 align-self-center mx-auto" id="genre">
                 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                     <div class="carousel-inner">
@@ -44,53 +61,53 @@
                                 </div>
                             </div>
                             <div class="cover">
-                                <img src="images/Green-Day.jpg" alt="ROCK MUSIC">
+                                <img src="images/hiphop.jpg" alt="Hip Hop">
                                 <div class="overlay">
-                                    <div class="text align-middle">ROCK</div>
+                                    <div class="text align-middle">Hip Hop</div>
                                 </div>
                             </div>
                             <div class="cover">
-                                <img src="images/popmusic.jpg" alt="POP MUSIC">
+                                <img src="images/blues.jpg" alt="Blues">
                                 <div class="overlay">
-                                    <div class="text align-middle">POP MUSIC</div>
+                                    <div class="text align-middle">Blues</div>
                                 </div>
                             </div>
                             <div class="cover">
-                                <img src="images/electronicdance.png" alt="ELECTONIC DANCE">
+                                <img src="images/disco.jpg" alt="Disco">
                                 <div class="overlay">
-                                    <div class="text align-middle">ELECTONIC DANCE</div>
+                                    <div class="text align-middle">Disco</div>
                                 </div>
                             </div>
                             <div class="cover">
-                                <img src="images/jazz.png" alt="JAZZ">
+                                <img src="images/reggae.jpg" alt="Reggae">
                                 <div class="overlay">
-                                    <div class="text align-middle">JAZZ</div>
+                                    <div class="text align-middle">Reggae</div>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="cover">
-                                <img src="images/dubstep.jpg" alt="DUBSTEP">
+                                <img src="images/funk.jpg" alt="Funk">
                                 <div class="overlay">
-                                    <div class="text align-middle">DUBSTEP</div>
+                                    <div class="text align-middle">Funk</div>
                                 </div>
                             </div>
                             <div class="cover">
-                                <img src="images/rhythm and  blues.jpg" alt="RHYTHM AND BLUES">
+                                <img src="images/soul.jpg" alt="Soul Music">
                                 <div class="overlay">
-                                    <div class="text align-middle">RHYTHM AND BLUES</div>
+                                    <div class="text align-middle">Soul Music</div>
                                 </div>
                             </div>
                             <div class="cover">
-                                <img src="images/techno.jpg" alt="TECHNO">
+                                <img src="images/heavymetal.jpg" alt="Heavy Metal">
                                 <div class="overlay">
-                                    <div class="text align-middle">TECHNO</div>
+                                    <div class="text align-middle">Heavy Metal</div>
                                 </div>
                             </div>
                             <div class="cover">
-                                <img src="images/country.jpg" alt="COUNTRY MUSIC">
+                                <img src="images/instrumental.jpg" alt="Instumental">
                                 <div class="overlay">
-                                    <div class="text align-middle">COUNTRY MUSIC</div>
+                                    <div class="text align-middle">Instrumental</div>
                                 </div>
                             </div>
                             <div class="cover">
@@ -130,7 +147,9 @@
                 </div>
             </div>
         </div>
+        <!------------------------Genre Div----------------------------------->
     </div>
+    <!--------------------------Bootstrap/javascript links------------------------>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -140,7 +159,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
+    <!--------------------------Bootstrap/javascript links------------------------>
 </body>
 
 </html>
