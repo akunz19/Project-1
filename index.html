@@ -8,12 +8,34 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|PT+Serif+Caption&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/genre_style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="images/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="images/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Weatherfy</title>
 </head>
 
 <body>
     <div class="container">
+        <!-- login page here -->
+        <div class="container">
+            <div class="row justify-content-center align-middle" id="logIn">
+                <div class="col-md-12 "></div>
+                <div class="text-center" id="login">
+                    <div>
+                        <p>WeatherFy</p>
+                    </div>
+                    <div><img src="images/spotify_logo.png" alt="" /></div>
+                    <br />
+
+                    <a class="button button--social-login button--spotify" href="#"></i>Login With
+                        Spotify</a>
+                </div>
+            </div>
+        </div>
+        <!-- login page ends -->
         <!-----------------------ZIP CODE DIV---------------------------->
         <div class=" row" id="zipCode" style='margin-top: 25%'>
             <div class="col-md-4"></div>
@@ -23,7 +45,7 @@
                         <label class="sr-only">Enter Zip Code</label>
                         <input type="ZipCode" class="form-control" placeholder="Zip Code">
                     </div>
-                    <a class="btn btn-primary btn-lg" style="border-radius:30px" href="#" role="button">Generate
+                    <a class="btn btn-lg" id="generateZip" style="border-radius:30px" href="#" role="button">Generate
                         Playlist!</a>
                 </div>
             </div>
@@ -39,25 +61,25 @@
                             <div class="cover">
                                 <img src="images/Green-Day.jpg" alt="ROCK MUSIC">
                                 <div class="overlay">
-                                    <div class="text align-middle">ROCK</div>
+                                    <div class="text align-middle">Rock</div>
                                 </div>
                             </div>
                             <div class="cover">
                                 <img src="images/popmusic.jpg" alt="POP MUSIC">
                                 <div class="overlay">
-                                    <div class="text align-middle">POP MUSIC</div>
+                                    <div class="text align-middle">Pop Music</div>
                                 </div>
                             </div>
                             <div class="cover">
-                                <img src="images/electronicdance.png" alt="ELECTONIC DANCE">
+                                <img src="images/electronicdance.png" alt="ELECTRONIC DANCE">
                                 <div class="overlay">
-                                    <div class="text align-middle">ELECTONIC DANCE</div>
+                                    <div class="text align-middle">Electronic Dance</div>
                                 </div>
                             </div>
                             <div class="cover">
                                 <img src="images/jazz.png" alt="JAZZ">
                                 <div class="overlay">
-                                    <div class="text align-middle">JAZZ</div>
+                                    <div class="text align-middle">Jazz</div>
                                 </div>
                             </div>
                             <div class="cover">
@@ -113,25 +135,25 @@
                             <div class="cover">
                                 <img src="images/dubstep.jpg" alt="DUBSTEP">
                                 <div class="overlay">
-                                    <div class="text align-middle">DUBSTEP</div>
+                                    <div class="text align-middle">Dubstep</div>
                                 </div>
                             </div>
                             <div class="cover">
                                 <img src="images/rhythm and  blues.jpg" alt="RHYTHM AND BLUES">
                                 <div class="overlay">
-                                    <div class="text align-middle">RHYTHM AND BLUES</div>
+                                    <div class="text align-middle">Rhythm And Blues</div>
                                 </div>
                             </div>
                             <div class="cover">
                                 <img src="images/techno.jpg" alt="TECHNO">
                                 <div class="overlay">
-                                    <div class="text align-middle">TECHNO</div>
+                                    <div class="text align-middle">Techno</div>
                                 </div>
                             </div>
                             <div class="cover">
                                 <img src="images/country.jpg" alt="COUNTRY MUSIC">
                                 <div class="overlay">
-                                    <div class="text align-middle">COUNTRY MUSIC</div>
+                                    <div class="text align-middle">Country Music</div>
                                 </div>
                             </div>
                         </div>
@@ -149,6 +171,68 @@
         </div>
         <!------------------------Genre Div----------------------------------->
     </div>
+    <!-- playlist page here -->
+    <section class="header">
+        <div class="page-flows justify-content-right align-middle">
+            <span class="flow">
+                <div class="user_info">
+                    <span class="user_info_img">
+                        <img src="images/proPic.jpg" alt="Profile Picture" class="img-responsive" />
+                    </span>
+                    <span class="user_info_name">
+
+                        <span class="first">User</span>
+
+                        <span class="last">Name</span>
+
+                    </span>
+
+                </div>
+
+        </div>
+    </section>
+    <!-- container here -->
+    <!-- background gradient -->
+    <div class="row justify-content-center text-center align-middle" id="weatherInfo">
+        <div class="col-md-4 info">
+            <div><img src="images/sunny.png" alt=""><span id="fahrenheit">19<span>°F</span></span></div>
+
+        </div>
+        <div class="col-md-4">
+            <!-- <img src="images/placeholder.svg" alt=""> -->
+            <span id="location">Plano, TX 75093</span><br>
+            <span id="date">Saturday</span>
+            <span id="descWord">Clear</span>
+        </div>
+        <div class="col-md-4 infoDetail">
+            <div>Cloudiness : <span id="cloudiness">0%</span></div>
+            <div>Humidity : <span id="humidity">65%</span></div>
+            <div>Wind : <span id="wind">3 km/h</span></div>
+        </div>
+
+    </div>
+    </div>
+    <hr>
+
+    <div class="row justify-content-center text-center align-middle" id="playlist">
+        <div class="col-md-6 text-center" id="playListImg">
+            <div><img src="images/playlist_album_img.jpg" alt="" /></div>
+        </div>
+        <div class="col-md-6 text-center" id="playListOrder">
+            <!-- <ul class="list-group list-group-flush">
+                <li class="list-group-item">Song1</li>
+                <li class="list-group-item">Song2</li>
+                <li class="list-group-item">Song3</li>
+                <li class="list-group-item">Song4</li>
+                <li class="list-group-item">Song5</li>
+                <li class="list-group-item">Song6</li>
+                <li class="list-group-item">Song7</li>
+            </ul>` -->
+        </div>
+    </div>
+    <!-- playlist page ends -->
+    <!-- footer starts -->
+    <section class="footer"></section>
     <!--------------------------Bootstrap/javascript links------------------------>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
