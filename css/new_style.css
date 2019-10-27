@@ -292,12 +292,15 @@ hr {
   background-color: rgba(255, 255, 255, 0.1); */
 }
 /* playlist style ends */
-#login{
+/* #login-container{
   display:none;
-}
+}*/
 #zipCode{
   display:none ;
 }
-#genre{
+#playlist{
   display: none;
 }
+#genre{
+  display: none;
+} 
