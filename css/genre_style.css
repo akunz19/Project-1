@@ -45,7 +45,8 @@ img {
     padding-top: 35%;
     font: bolder;
     font-size: 30px;
-    font-family: 'Nanum Gothic', sans-serif;
+    /*font-family: 'Nanum Gothic', sans-serif;*/
+    font-family: 'Fjalla One', sans-serif;
 }
 .next {
     width: 100px;
