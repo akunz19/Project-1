@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    $('#getZipCode').click(function(){ // Create or match HTML I
-        var zipCode = 'zip=' + $('#zipCode').val().trim(); // Create or match HTML Id
+    $('#generateZip').click(function(){ // Create or match HTML I
+        var zipCode = 'zip=' + $('#zipCode').val().trim();
         var apiKey = '&appid=ed6ad32dd8070a6ab3e2194ab69a5010';
         var getURL = 'https://api.openweathermap.org/data/2.5/weather?' + zipCode + apiKey;
 
@@ -10,10 +10,15 @@ $(document).ready(function(){
         }).then(function (response){
             console.log(getURL);
             console.log(response);
-            console.log(response.weather[0].main);
-/*          $('#showWeatherInfo').text('Current conditions: ' + response.weather[0].main) */ 
+
+            // Weather code conditions to display on HTML
+            console.log(Math.ceil(response.main.temp) + ' °F'); // Current temperature
+            console.log(response.name); // City
+            console.log(response.weather[0].main); // Current conditions
+            console.log(response.clouds.all + '%'); // Cloudiness
+            console.log(response.main.humidity + '%'); // Current humidity
+            console.log(response.wind.speed + ' m/h'); // Current wind speed
+
         })
     })
 })
-
-// Link #zipCode from line 3 and #showWeatherInfo from line 14 to HTML code & test
