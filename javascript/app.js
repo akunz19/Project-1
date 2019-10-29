@@ -12,6 +12,8 @@ $(document).ready(function() {
       "&scope=" +
       scopes;
     var user = {};
+    var currentWeather = {};
+    var imageArray= [];
     var trackidArray = [];
     var trackURIArray = [];
     var objarrayUri = [];
@@ -23,7 +25,9 @@ $(document).ready(function() {
     var playlist = [];
     var playlistID;
     var weather;
-    var weatherlocation;
+    var currentTemp;
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     console.log("app.js");
   
     function spotifyLogin() {
@@ -51,6 +55,7 @@ $(document).ready(function() {
     function loginChecker() {
       console.log("inside loginChecker");
       if (localStorage.getItem("loggedin")) {
+        getUser();
         $("#login-container").detach();
         localStorage.removeItem("loggedin");
         getData();
@@ -67,6 +72,7 @@ $(document).ready(function() {
           Authorization: "Bearer " + token
         }
       }).then(function(response) {
+        console.log("getUser is running", response);
         user.id = response.id;
         user.country = response.country;
         user.name = response.display_name;
@@ -96,6 +102,7 @@ $(document).ready(function() {
           console.log("inside sunnforloop sunny");
           trackObjArray[index].isSelected = true;
           objarrayUri.push(trackObjArray[index].uri);
+          $("#artistCarousel").append("<div class='cover'><img src='"+trackObjArray[index].image+"' alt='ROCK MUSIC'><div class='overlay'><div class='text align-middle'>"+trackObjArray[index].artist+"</div></div></div>");
           playlist.push(trackObjArray[index]);
           searchCount++;
         }
@@ -114,6 +121,7 @@ $(document).ready(function() {
           console.log("inside forloop cloudy");
           trackObjArray[index].isSelected = true;
           objarrayUri.push(trackObjArray[index].uri);
+          $("#artistCarousel").append("<div class='cover'><img src='"+trackObjArray[index].image+"' alt='ROCK MUSIC'><div class='overlay'><div class='text align-middle'>"+trackObjArray[index].artist+"</div></div></div>");
           playlist.push(trackObjArray[index]);
           searchCount++;
         }
@@ -135,7 +143,7 @@ $(document).ready(function() {
         }),
         contentType: "application/json; charset=utf-8",
         dataType: "json"
-      }).then(function(response) {
+      }).then(function(response) {      
         playlistID = response.id;
         addTracks();
       });
@@ -157,7 +165,16 @@ $(document).ready(function() {
         contentType: "application/json; charset=utf-8",
         dataType: "json"
       }).then(function(response) {
-        console.log("added tracks");
+        $("#userName").append(user.name);
+        $("#spotify-widget").append("<iframe src='https://open.spotify.com/embed/playlist/"+playlistID+"' width='500' height='380' frameborder='0' allowtransparency='true' allow='encrypted-media'></iframe>")
+        $("#location").append(currentWeather.city);
+        $("#iconandtemp").append("<img id='weatherIcon' src='"+currentWeather.icon+"'>");
+        $("#temp").append(currentWeather.temp);
+        $("#date").append(date);
+        $("#descWord").append(weather);
+        $("#cloudiness").append(currentWeather.cloudiness);
+        $("#humidity").append(currentWeather.humidity);
+        $("#wind").append(currentWeather.windspeed);
       });
     }
   
@@ -170,13 +187,22 @@ $(document).ready(function() {
           .trim(); // Create or match HTML Id
       var apiKey = "&appid=ed6ad32dd8070a6ab3e2194ab69a5010";
       var getURL =
-        "https://api.openweathermap.org/data/2.5/weather?" + zipCode + apiKey;
+        "https://api.openweathermap.org/data/2.5/weather?" + zipCode +"&units=imperial&"+ apiKey;
       $.ajax({
         url: getURL,
         method: "GET"
       }).then(function(response) {
         weather = response.weather[0].main;
+        var temp = response.main.temp;
+        currentTemp = Math.round(temp)+"°F";
+        currentWeather.temp = currentTemp;
+        currentWeather.city = response.name;
+        currentWeather.icon = "http://openweathermap.org/img/wn/"+response.weather[0].icon+"@2x.png";
+        currentWeather.windspeed = response.wind.speed + "mph";
+        currentWeather.humidity = response.main.humidity + "%";
+        currentWeather.cloudiness = response.clouds.all + "%";
         console.log(weather);
+        console.log(currentWeather);
         if (weather === "Clear") {
           sunnyLogic();
           createplaylistContainer();
@@ -210,8 +236,6 @@ $(document).ready(function() {
   
     function getData() {
       console.log("getdata");
-      console.log("calling getuser in getdata");
-      getUser();
       var queryURL = "https://api.spotify.com/v1/me/top/artists"; //get top played artists
       $.ajax({
         url: queryURL,
@@ -225,6 +249,7 @@ $(document).ready(function() {
           var artist = response.items[i].id;
           artistIDArray.push(artist); //array of top played artist IDs
         }
+        console.log(response);
         console.log("calling getTracks");
         getTracks(0);
       });
@@ -250,6 +275,8 @@ $(document).ready(function() {
           getTracks(j);
         } else {
           console.log("running genAudioFeatures");
+          console.log("getTracks response", response);
+          console.log("images", imageArray);
           genAudioFeatures();
         }
       });
@@ -274,7 +301,7 @@ $(document).ready(function() {
       trackURIArray.push(response.tracks[i].uri);
       artistNameArray.push(response.tracks[i].artists[0].name);
       trackNameArray.push(response.tracks[i].name);
-  
+      imageArray.push((response.tracks[i].album.images[0].url));
       i++;
       if (i < 5) {
         idLoop(response, i);
@@ -310,6 +337,7 @@ $(document).ready(function() {
         var obj = {
           artist: artistNameArray[i],
           title: trackNameArray[i],
+          image: imageArray[i],
           energy: trackFeatureArray[i].energy,
           uri: trackURIArray[i],
           isSelected: false
