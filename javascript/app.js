@@ -168,14 +168,32 @@ $(document).ready(function() {
         $("#ZipCode")
           .val()
           .trim(); // Create or match HTML Id
-      var apiKey = "&appid=ed6ad32dd8070a6ab3e2194ab69a5010";
+      var apiKey = "&appid=ed6ad32dd8070a6ab3e2194ab69a5010&units=imperial";
       var getURL =
         "https://api.openweathermap.org/data/2.5/weather?" + zipCode + apiKey;
       $.ajax({
         url: getURL,
         method: "GET"
       }).then(function(response) {
+        
+        temperature = Math.ceil(response.main.temp) + ' °F';
+        city = response.name;
         weather = response.weather[0].main;
+        cloudiness = response.clouds.all + '%';
+        humidity = response.main.humidity + '%';
+        wind = response.wind.speed + ' m/h';
+        day = new Date();
+        days = ["Sunday,","Monday,","Tuesday,","Wednesday,","Thursday,","Friday,","Saturday,"];
+        document.getElementById("date").innerHTML = days[day.getDay()];
+
+        // Load OpenWeather API conditions to weaterInfo div
+        $('#farenheit').html(temperature);
+        $('#location').html(city + ', ' + response.sys.country);
+        $('#weather').html(weather);
+        $('#cloudiness').html(cloudiness);
+        $('#humidity').html(humidity);
+        $('#wind').html(wind);
+          
         console.log(weather);
         if (weather === "Clear") {
           sunnyLogic();
