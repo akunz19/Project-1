@@ -189,39 +189,44 @@ $(document).ready(function() {
         // Load OpenWeather API conditions to weaterInfo div
         $('#farenheit').html(temperature);
         $('#location').html(city + ', ' + response.sys.country);
-        $('#weather').html(weather);
+        $('#descWord').html(weather);
         $('#cloudiness').html(cloudiness);
         $('#humidity').html(humidity);
         $('#wind').html(wind);
           
         console.log(weather);
         if (weather === "Clear") {
+          $("#logo").attr("src","http://openweathermap.org/img/wn/01d@2x.png");
           sunnyLogic();
           createplaylistContainer();
           console.log(playlist);
         } else if (weather === "Clouds") {
+          $("#logo").attr("src","http://openweathermap.org/img/wn/03d@2x.png");
           cloudyLogic();
           createplaylistContainer();
           console.log(playlist);
         } else if (
+          weather === "Mist" ||
           weather === "Rain" ||
           weather === "Drizzle" ||
           weather === "Thunderstorm"
-        ) {
-          cloudyLogic();
-          createplaylistContainer();
-          console.log(playlist);
-        } else {
-          console.log("other");
-          sunnyLogic();
-          createplaylistContainer();
-          console.log(playlist);
-        }
-        console.log("openweather response ", response);
-        console.log("before weather");
-      });
-    }
-  
+          ) {
+            $("#logo").attr("src","http://openweathermap.org/img/wn/10d@2x.png");
+            cloudyLogic();
+            createplaylistContainer();
+            console.log(playlist);
+          } else {
+            console.log("other");
+            sunnyLogic();
+            createplaylistContainer();
+            console.log(playlist);
+          }
+          console.log("openweather response ", response);
+          console.log("before weather");
+        });
+      }
+      
+      
     /*everything below here goes into the dataButton*/
   
     //get top played tracks of user's top artists
