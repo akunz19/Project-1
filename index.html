@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|PT+Serif+Caption&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/new_style.css">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="icon" type="images/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -47,6 +47,7 @@
                     </div>
                     <a class="btn btn-lg" id="generateZip" style="border-radius:30px" href="#" role="button">Generate
                         Playlist!</a>
+                    <a href="#" data-toggle="popover" data-content="Please Enter Valid ZipCode"></a>
                 </div>
             </div>
             <div class="col-md-4"></div>
@@ -193,24 +194,27 @@
     </section>
     <!-- container here -->
     <!-- background gradient -->
-    <div class="row justify-content-center text-center align-middle playlist" id="weatherInfo">
-        <div class="col-md-4 info">
-            <div><img src="images/sunny.png" alt=""><span id="fahrenheit">19<span>°F</span></span></div>
+    <div id="effects">
+        <div class="bg"></div>
+        <div class="lightning flashit"></div>
+        <div class="row justify-content-center text-center align-middle playlist" id="weatherInfo">
+            <div class="col-md-4 info">
+                <div><img src="images/sunny.png" alt=""><span id="fahrenheit">19<span>°F</span></span></div>
+
+            </div>
+            <div class="col-md-4">
+                <!-- <img src="images/placeholder.svg" alt=""> -->
+                <span id="location">Plano, TX 75093</span><br>
+                <span id="date">Saturday</span>
+                <span id="descWord">Clear</span>
+            </div>
+            <div class="col-md-4 infoDetail">
+                <div>Cloudiness : <span id="cloudiness">0%</span></div>
+                <div>Humidity : <span id="humidity">65%</span></div>
+                <div>Wind : <span id="wind">3 km/h</span></div>
+            </div>
 
         </div>
-        <div class="col-md-4">
-            <!-- <img src="images/placeholder.svg" alt=""> -->
-            <span id="location">Plano, TX 75093</span><br>
-            <span id="date">Saturday</span>
-            <span id="descWord">Clear</span>
-        </div>
-        <div class="col-md-4 infoDetail">
-            <div>Cloudiness : <span id="cloudiness">0%</span></div>
-            <div>Humidity : <span id="humidity">65%</span></div>
-            <div>Wind : <span id="wind">3 km/h</span></div>
-        </div>
-
-    </div>
     </div>
     <hr class="playlist">
 

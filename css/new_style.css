@@ -117,11 +117,12 @@ background-color:#4bd374;
   height: 150px;
   width: 150px;
 }
-
 #logIn p {
   color: #4bd374;
   font-size: 130px;
    font-family: 'Great Vibes', cursive;
+   color: white;
+  text-shadow: 2px 2px 4px #000000
 }
 
 #logIn .button, .generateZip {
@@ -293,11 +294,14 @@ hr {
 }
 /* playlist style ends */
 #login{
-  display:none;
+  display:;
 }
 #zipCode{
   display:none ;
 }
 #genre{
   display: none;
+}
+.playlist{
+  display:none;
 }
