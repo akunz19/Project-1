@@ -5,9 +5,11 @@
 
 body {
   margin: 0;
+  height: 100vh;
+  font-family: "Nanum Gothic", sans-serif;
   width: 100%;
   height: 100vh;
-      font-family: "Nanum Gothic", sans-serif;
+  font-family: "Nanum Gothic", sans-serif;
   font-family: "Exo", sans-serif;
   color: #fff;
   background: linear-gradient(-45deg, #85006e, #63068f, #85006e, #63068f);
@@ -16,6 +18,27 @@ body {
 }
 /* this is the genre css*/
 .cover {
+  height: 200px;
+  width: 200px;
+  float: left;
+  margin: 30px 30px 30px 30px;
+  position: relative;
+  text-align: center;
+}
+#genre {
+  padding-top: 100px;
+  text-align: center;
+}
+.cover img {
+  height: 200px;
+  width: 200px;
+  border-radius: 25px;
+  border-style: solid;
+  border-color: #2ebd59;
+  border-width: 2px;
+}
+.cover:hover .overlay {
+  opacity: 1;
     height: 200px;
     width: 200px;
     float: left;
@@ -33,7 +56,7 @@ body {
     width: 200px;
     border-radius: 25px;
     border-style: solid;
-    border-color: limegreen;
+    border-color: #2ebd59;
     border-width: 2px;
 }
 .cover:hover .overlay{
@@ -49,8 +72,43 @@ body {
   width: 200px;
   opacity: 0;
   border-radius: 25px;
+  transition: 0.5s ease;
+  background-color: #2ebd59;
+}
+.text {
+  padding-top: 35%;
+  font: bolder;
+  font-size: 30px;
+  /*font-family: 'Nanum Gothic', sans-serif;*/
+  /*font-family: 'Fjalla One', sans-serif;*/
+}
+.next {
+  width: 100px;
+  margin-right: 70px;
+}
+.prev {
+  width: 100px;
+}
+/* this is the genre css*/
+/* enter zip code*/
+#zipCode {
+  background-color: none;
+}
+
+#genrePage {
+  display: flex;
+}
+.form-control {
+  border-width: 1.5px;
+  border-style: solid;
+  border-color: #2ebd59;
+  background-color: transparent;
+}
+/* enter zip code*/
+
+#generateZip {
+  background-color: #4bd374;
   transition: .5s ease;
-  background-color: limegreen;
 }
 .text{
     padding-top: 35%;
@@ -79,7 +137,7 @@ body {
 .form-control{
   border-width: 1.5px;
     border-style: solid;
-    border-color: limegreen;
+    border-color: #2ebd59;
     background-color: transparent;
 }
 /* enter zip code*/
@@ -109,10 +167,11 @@ background-color:#4bd374;
   }
 }
 /* login style starts */
+#login {
+  margin-top: 10%;
 #login{
   margin-top:10%;
- 
-}
+ }
 #logIn img {
   height: 150px;
   width: 150px;
@@ -121,6 +180,12 @@ background-color:#4bd374;
 #logIn p {
   color: #4bd374;
   font-size: 130px;
+
+  font-family: "Great Vibes", cursive;
+}
+
+#logIn .button,
+.generateZip {
    font-family: 'Great Vibes', cursive;
 }
 
@@ -145,6 +210,10 @@ background-color:#4bd374;
   line-height: 46px;
   position: relative;
   text-align: left;
+  padding-left: 18px;
+  font-size: 20px;
+}
+#logIn .button--social-login .icon {
    padding-left: 18px;
    font-size: 20px;
 }
@@ -158,7 +227,7 @@ background-color:#4bd374;
   display: inline-block;
   position: relative;
   top: 4px;
- 
+
 }
 /* #logIn .button--social-login .icon:before {
   display: inline-block;
@@ -170,6 +239,12 @@ background-color:#4bd374;
 #logIn .button--spotify {
   background-color: #2ebd59;
   border: 1px solid #249446;
+  color: #181818;
+}
+
+#logIn .button--spotify:hover,
+#generateZip:hover {
+
 color:#181818;
 }
 
@@ -181,6 +256,26 @@ color:#181818;
 /* playlist style starts */
 
 /* header here */
+.footer {
+  background: #282828;
+  width: 100%;
+  border-top: 1px solid #4bd374;
+  padding: 30px;
+  margin-top: 60px;
+}
+.header {
+  background: #282828;
+  border-bottom: 1px solid #4bd374;
+  padding: 15px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  /* border: 1px solid skyblue; */
+}
+
+.header .page-flows {
+  width: 100%;
+  /* border: 1px solid firebrick; */
 .header,
 .footer {
   background: #282828;
@@ -199,11 +294,53 @@ color:#181818;
   color: #4bd374;
   text-align: right;
 }
+.header .page-flows .flow .user_info .user_info_name:hover {
 .header .page-flows .flow:hover {
-  color: white;
-  text-decoration: seashell;
+  color: #fff;
+/*   text-decoration: seashell; */
   cursor: pointer;
 }
+.header .page-flows .flow .user_info .logo span:hover {
+  color: #fff;
+/*   text-decoration: seashell; */
+  cursor: pointer;
+}
+.header .page-flows .user_info {
+  width: 100%;
+  display: flex;
+
+  /* border: 1px solid salmon; */
+}
+.header .flow .user_info .logo {
+  text-align: left;
+  display: inline-flex;
+}
+.header .flow .user_info .logo span {
+  justify-content: flex-start;
+  text-align: left;
+  width: 100%;
+  font-size: 25px;
+  /* border: 1px solid slategrey; */
+  margin-right: 20px;
+  font-family: "Great Vibes", cursive;
+}
+.header .flow .user_info .logo #new {
+  background-color: transparent;
+  color: #f3e037;
+  font-weight: 100;
+  display: inline-block;
+  border: none;
+  /* border: 1px solid rgb(248, 11, 11); */
+  text-align: center;
+  white-space: nowrap;
+  width: 100px;
+}
+.header .flow .user_info .logo #new:hover {
+  color: #4bd374;
+}
+.header .flow {
+  margin-left: auto;
+
 .header .user {
   width: 300px;
   margin-left: auto;
@@ -212,16 +349,25 @@ color:#181818;
   justify-content: space-between;
   align-items: center;
 }
+
+.header .flow .user_info_img {
+  /* border: 1px solid slateblue; */
+  display: inline-block;
+  text-align: right;
+  width: 90%;
+  margin-top: 8px;
 .header .user i {
   font-size: 20px;
 }
 .header .user i:hover {
-  color: white;
+  color: #fff;
 }
 .header .user_info img {
   max-width: 30px;
   max-height: 30px;
   border-radius: 50%;
+
+  /* display: inline-block; */
   display: inline-block;
 }
 .header .user_actions button {
@@ -231,6 +377,7 @@ color:#181818;
 /* header ends */
 
 #playlist {
+  margin-top: 4%;
   margin-top:4%;
   /* border: 1px solid sienna; */
 }
@@ -240,6 +387,10 @@ color:#181818;
 }
 /* weather info starts here */
 #weatherInfo {
+  margin: 10%;
+  vertical-align: middle;
+  text-align: center;
+  padding-top: 4%;
   margin:10%;
     vertical-align: middle;
    text-align: center;
@@ -265,6 +416,10 @@ color:#181818;
   color: #2ebd59;
   padding: 8px;
 }
+.infoDetail > div {
+  display: inline-block;
+  text-align: left;
+}
 
 #precipitation,
 #humidity,
@@ -282,6 +437,8 @@ hr {
 #weatherInfo {
   color: #2ebd59;
 
+  /* border: 1px solid sienna; */
+  /* }
 
   /* border: 1px solid sienna; */
 /* }
@@ -292,6 +449,16 @@ hr {
   background-color: rgba(255, 255, 255, 0.1); */
 }
 /* playlist style ends */
+
+#login {
+  display: none;
+}
+#zipCode {
+  display: none;
+}
+#genre {
+  display: none;
+}
 /* #login-container{
   display:none;
 }*/
@@ -303,4 +470,5 @@ hr {
 }
 /* #genre{
   display: none;
-}  */
+} 
+
