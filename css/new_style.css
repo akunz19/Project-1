@@ -6,6 +6,7 @@
 body {
   margin: 0;
   height: 100%;
+
   font-family: "Nanum Gothic", sans-serif;
   font-family: "Exo", sans-serif;
   color: #fff;
@@ -15,6 +16,7 @@ body {
 }
 /* this is the genre css*/
 .cover {
+
   height: 100px;
   width: 100px;
   float: left;
@@ -76,6 +78,7 @@ body {
   border-style: solid;
   border-color: limegreen;
   background-color: transparent;
+
 }
 /* enter zip code*/
 
@@ -104,6 +107,7 @@ body {
 #login {
   margin-top: 10%;
 }
+
 #logIn img {
   height: 150px;
   width: 150px;
@@ -114,6 +118,7 @@ body {
   font-size: 130px;
   font-family: "Great Vibes", cursive;
   text-shadow:3px 3px black;
+
 }
 
 #logIn .button,
@@ -156,12 +161,14 @@ body {
   background-color: #2ebd59;
   border: 1px solid #249446;
   color: #181818;
+
 }
 
 #logIn .button--spotify:hover,
 #generateZip:hover {
   color: #fff;
 }
+
 .footer {
   background: #282828;
   width: 100%;
@@ -201,7 +208,6 @@ body {
 .header .page-flows .user_info {
   width: 100%;
   display: flex;
-
 }
 .header .flow .user_info .logo {
   text-align: left;
@@ -250,7 +256,7 @@ body {
 /* header ends */
 
 #playlist {
-  margin-top: 0%;
+
   /* border: 1px solid sienna; */
 }
 #playlist #playListImg img {
