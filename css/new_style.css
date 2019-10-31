@@ -5,10 +5,8 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  font-family: "Nanum Gothic", sans-serif;
-  width: 100%;
-  height: 100vh;
+  height: 100%;
+
   font-family: "Nanum Gothic", sans-serif;
   font-family: "Exo", sans-serif;
   color: #fff;
@@ -18,49 +16,28 @@ body {
 }
 /* this is the genre css*/
 .cover {
-  height: 200px;
-  width: 200px;
+
+  height: 100px;
+  width: 100px;
   float: left;
-  margin: 30px 30px 30px 30px;
+  margin: 20px 20px 20px 20px;
   position: relative;
   text-align: center;
 }
 #genre {
-  padding-top: 100px;
+  padding-top: 0px;
   text-align: center;
 }
 .cover img {
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   border-radius: 25px;
   border-style: solid;
-  border-color: #2ebd59;
+  border-color: limegreen;
   border-width: 2px;
 }
 .cover:hover .overlay {
   opacity: 1;
-    height: 200px;
-    width: 200px;
-    float: left;
-    margin: 30px 30px 30px 30px;
-  position: relative;
-  text-align: center;
-}
-#genre{  
-    padding-top: 100px;
-    text-align: center;
-
-}
-.cover img {
-    height: 200px;
-    width: 200px;
-    border-radius: 25px;
-    border-style: solid;
-    border-color: #2ebd59;
-    border-width: 2px;
-}
-.cover:hover .overlay{
-    opacity: 1;
 }
 .overlay {
   position: absolute;
@@ -68,19 +45,17 @@ body {
   bottom: 0;
   left: 0px;
   right: 0px;
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   opacity: 0;
   border-radius: 25px;
   transition: 0.5s ease;
-  background-color: #2ebd59;
+  background-color: limegreen;
 }
 .text {
-  padding-top: 35%;
+  padding-top:15%;
   font: bolder;
-  font-size: 30px;
-  /*font-family: 'Nanum Gothic', sans-serif;*/
-  /*font-family: 'Fjalla One', sans-serif;*/
+  font-size: 15px;
 }
 .next {
   width: 100px;
@@ -101,54 +76,17 @@ body {
 .form-control {
   border-width: 1.5px;
   border-style: solid;
-  border-color: #2ebd59;
+  border-color: limegreen;
   background-color: transparent;
+
 }
 /* enter zip code*/
 
 #generateZip {
   background-color: #4bd374;
-  transition: .5s ease;
-}
-.text{
-    padding-top: 35%;
-    font: bolder;
-    font-size: 30px;
-    /*font-family: 'Nanum Gothic', sans-serif;*/
-    /*font-family: 'Fjalla One', sans-serif;*/
-}
-.next {
-    width: 100px;
-    margin-right: 70px;
-}
-.prev {
-    width: 100px;
-}
-/* this is the genre css*/
-/* enter zip code*/
-#zipCode{
-    background-color:none;
-}
-
-#genrePage{
-    display: flex;
-
-}
-.form-control{
-  border-width: 1.5px;
-    border-style: solid;
-    border-color: #2ebd59;
-    background-color: transparent;
-}
-/* enter zip code*/
-
-#generateZip{
-background-color:#4bd374;
-
 }
 .container {
   width: 100%;
-  /* position: absolute; */
   top: 35%;
   text-align: center;
 }
@@ -166,12 +104,10 @@ background-color:#4bd374;
     background-position: 0% 50%;
   }
 }
-/* login style starts */
 #login {
   margin-top: 10%;
-#login{
-  margin-top:10%;
- }
+}
+
 #logIn img {
   height: 150px;
   width: 150px;
@@ -180,16 +116,13 @@ background-color:#4bd374;
 #logIn p {
   color: #4bd374;
   font-size: 130px;
-
   font-family: "Great Vibes", cursive;
+  text-shadow:3px 3px black;
+
 }
 
 #logIn .button,
 .generateZip {
-   font-family: 'Great Vibes', cursive;
-}
-
-#logIn .button, .generateZip {
   width: auto;
   display: inline-block;
   padding: 0 18px 0 6px;
@@ -214,10 +147,6 @@ background-color:#4bd374;
   font-size: 20px;
 }
 #logIn .button--social-login .icon {
-   padding-left: 18px;
-   font-size: 20px;
-}
-#logIn .button--social-login .icon  {
   margin-right: 12px;
   font-size: 24px;
   line-height: 24px;
@@ -227,41 +156,26 @@ background-color:#4bd374;
   display: inline-block;
   position: relative;
   top: 4px;
-
 }
-/* #logIn .button--social-login .icon:before {
-  display: inline-block;
-  width: 40px;
-} */
-/* #logIn .button--social-login .icon:after {
-  content: "";
-} */
 #logIn .button--spotify {
   background-color: #2ebd59;
   border: 1px solid #249446;
   color: #181818;
+
 }
 
 #logIn .button--spotify:hover,
 #generateZip:hover {
-
-color:#181818;
-}
-
-#logIn .button--spotify:hover, #generateZip:hover {
-  /* background-color: #29a8 4f; */
   color: #fff;
 }
-/* login style ends */
-/* playlist style starts */
 
-/* header here */
 .footer {
   background: #282828;
   width: 100%;
   border-top: 1px solid #4bd374;
   padding: 30px;
-  margin-top: 60px;
+  margin-top: 0px;
+  bottom: 0;
 }
 .header {
   background: #282828;
@@ -270,24 +184,11 @@ color:#181818;
   width: 100%;
   position: fixed;
   z-index: 1;
-  /* border: 1px solid skyblue; */
+  top: 0;
 }
 
 .header .page-flows {
   width: 100%;
-  /* border: 1px solid firebrick; */
-.header,
-.footer {
-  background: #282828;
-  width:100%;
-  padding: 15px;
-  padding-right: 25px;
-  border-bottom: 1px solid #4bd374;
-}
-
-.footer {
-  padding: 20px;
-  margin-top: 60px;
 }
 .header .page-flows .flow {
   font-size: 15px;
@@ -295,21 +196,18 @@ color:#181818;
   text-align: right;
 }
 .header .page-flows .flow .user_info .user_info_name:hover {
-.header .page-flows .flow:hover {
-  color: #fff;
-/*   text-decoration: seashell; */
+  color: white;
+  text-decoration: seashell;
   cursor: pointer;
 }
 .header .page-flows .flow .user_info .logo span:hover {
-  color: #fff;
-/*   text-decoration: seashell; */
+  color: white;
+  text-decoration: seashell;
   cursor: pointer;
 }
 .header .page-flows .user_info {
   width: 100%;
   display: flex;
-
-  /* border: 1px solid salmon; */
 }
 .header .flow .user_info .logo {
   text-align: left;
@@ -320,7 +218,6 @@ color:#181818;
   text-align: left;
   width: 100%;
   font-size: 25px;
-  /* border: 1px solid slategrey; */
   margin-right: 20px;
   font-family: "Great Vibes", cursive;
 }
@@ -330,7 +227,6 @@ color:#181818;
   font-weight: 100;
   display: inline-block;
   border: none;
-  /* border: 1px solid rgb(248, 11, 11); */
   text-align: center;
   white-space: nowrap;
   width: 100px;
@@ -340,45 +236,27 @@ color:#181818;
 }
 .header .flow {
   margin-left: auto;
-
-.header .user {
-  width: 300px;
-  margin-left: auto;
-  display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
 }
 
 .header .flow .user_info_img {
-  /* border: 1px solid slateblue; */
   display: inline-block;
   text-align: right;
   width: 90%;
   margin-top: 8px;
-.header .user i {
-  font-size: 20px;
-}
-.header .user i:hover {
-  color: #fff;
 }
 .header .user_info img {
   max-width: 30px;
   max-height: 30px;
   border-radius: 50%;
 
-  /* display: inline-block; */
-  display: inline-block;
-}
-.header .user_actions button {
-  background: none;
-  border: none;
 }
 /* header ends */
 
 #playlist {
-  margin-top: 4%;
-  margin-top:4%;
+
   /* border: 1px solid sienna; */
 }
 #playlist #playListImg img {
@@ -387,20 +265,20 @@ color:#181818;
 }
 /* weather info starts here */
 #weatherInfo {
-  margin: 10%;
+  margin-top: 50px;
+  margin-bottom: 20px;
   vertical-align: middle;
   text-align: center;
   padding-top: 4%;
-  margin:10%;
-    vertical-align: middle;
-   text-align: center;
+  display: flex;
 }
 
 #weatherInfo > div > img {
   width: 20%;
   height: 20%;
 }
-#weatherInfo #location {
+
+#location {
   font-size: 30px;
   font-weight: 600;
   padding: 20px;
@@ -420,7 +298,6 @@ color:#181818;
   display: inline-block;
   text-align: left;
 }
-
 #precipitation,
 #humidity,
 #wind {
@@ -437,38 +314,23 @@ hr {
 #weatherInfo {
   color: #2ebd59;
 
-  /* border: 1px solid sienna; */
-  /* }
-
-  /* border: 1px solid sienna; */
-/* }
-#playListOrder .list-group .list-group-item {
-  margin: 0;
-}
-#playListOrder .list-group .list-group-item:hover {
-  background-color: rgba(255, 255, 255, 0.1); */
 }
 /* playlist style ends */
 
 #login {
-  display: none;
+  display:show;
 }
 #zipCode {
   display: none;
 }
-#genre {
-  display: none;
-}
-/* #login-container{
-  display:none;
-}*/
-#zipCode{
-  display:none ;
-}
-#playlist{
-  display: none;
-}
-/* #genre{
-  display: none;
-} 
 
+.playlist{
+  display: none;
+}
+.carousel-inner{
+  box-sizing: content-box;
+}
+.user_info_name {
+  padding-top: 13px;
+  padding-left: 10px;
+}
