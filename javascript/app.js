@@ -1,6 +1,6 @@
 $(document).ready(function () {
   var clientID = "a0ee7d1e23dc4b14ac56e93bb2a390ce";
-  var redirectURI = "http://127.0.0.1:5500/index.html";
+  var redirectURI = "https://akunz19.github.io/Project-1/index.html";
   var scopes =
     "user-follow-read user-read-private user-read-email user-read-private playlist-read-private user-library-read user-library-modify user-top-read playlist-read-collaborative playlist-modify-public playlist-modify-private";
   var url =
@@ -11,6 +11,7 @@ $(document).ready(function () {
     redirectURI +
     "&scope=" +
     scopes;
+  var weatherSuccess = false;
   var user = {};
   var currentWeather = {};
   var imageArray = [];
@@ -63,7 +64,7 @@ $(document).ready(function () {
     }
   }
 
-  function getUser() {
+  function getUser() { //gets spotify profile
     var queryURL = "https://api.spotify.com/v1/me";
     $.ajax({
       url: queryURL,
@@ -78,16 +79,18 @@ $(document).ready(function () {
       user.name = response.display_name;
       console.log("this is the user: ", user);
     });
-  }
+  };
 
   $("#spotify_login").on("click", function () {
     spotifyLogin();
   });
 
   $("#generateZip").on("click", function () {
-    genWeather(); //creates playlist
-    $("#zipCode").detach();
-    $(".playlist").show();
+    genWeather();
+    if(weatherSuccess){
+
+     //creates playlist
+    };
   });
 
   function sunnyLogic() {
@@ -105,9 +108,9 @@ $(document).ready(function () {
         $("#artistCarousel").append("<div class='cover'><img src='" + trackObjArray[index].image + "' alt='ROCK MUSIC'><div class='overlay'><div class='text align-middle'>" + trackObjArray[index].artist + "</div></div></div>");
         playlist.push(trackObjArray[index]);
         searchCount++;
-      }
-    }
-  }
+      };
+    };
+  };
 
   function cloudyLogic() {
     var searchCount = 0;
@@ -124,9 +127,9 @@ $(document).ready(function () {
         $("#artistCarousel").append("<div class='cover'><img src='" + trackObjArray[index].image + "' alt='ROCK MUSIC'><div class='overlay'><div class='text align-middle'>" + trackObjArray[index].artist + "</div></div></div>");
         playlist.push(trackObjArray[index]);
         searchCount++;
-      }
-    }
-  }
+      };
+    };
+  };
 
   function createplaylistContainer() {
     console.log("creatingplaylist");
@@ -147,7 +150,7 @@ $(document).ready(function () {
       playlistID = response.id;
       addTracks();
     });
-  }
+  };
 
   function addTracks() {
     var uriStr = gentrackuriStr();
@@ -176,7 +179,7 @@ $(document).ready(function () {
       $("#humidity").append(currentWeather.humidity);
       $("#wind").append(currentWeather.windspeed);
     });
-  }
+  };
 
   function genWeather() {
     console.log("generating weather");
@@ -188,47 +191,64 @@ $(document).ready(function () {
     var apiKey = "&appid=ed6ad32dd8070a6ab3e2194ab69a5010";
     var getURL =
       "https://api.openweathermap.org/data/2.5/weather?" + zipCode + "&units=imperial&" + apiKey;
-    $.ajax({
-      url: getURL,
-      method: "GET"
-    }).then(function (response) {
-      weather = response.weather[0].main;
-      var temp = response.main.temp;
-      currentTemp = Math.round(temp) + "°F";
-      currentWeather.temp = currentTemp;
-      currentWeather.city = response.name;
-      currentWeather.icon = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
-      currentWeather.windspeed = response.wind.speed + "mph";
-      currentWeather.humidity = response.main.humidity + "%";
-      currentWeather.cloudiness = response.clouds.all + "%";
-      console.log(weather);
-      console.log(currentWeather);
-      if (weather === "Clear") {
-        sunnyLogic();
-        createplaylistContainer();
-        console.log(playlist);
-      } else if (weather === "Clouds") {
-        cloudyLogic();
-        createplaylistContainer();
-        console.log(playlist);
-      } else if (
-        weather === "Rain" ||
-        weather === "Drizzle" ||
-        weather === "Thunderstorm"
-      ) {
-        cloudyLogic();
-        createplaylistContainer();
-        console.log(playlist);
-      } else {
-        console.log("other");
-        sunnyLogic();
-        createplaylistContainer();
-        console.log(playlist);
-      }
-      console.log("openweather response ", response);
-      console.log("before weather");
+      $.ajax({
+        url: getURL,
+        method: "GET",
+        success: (function (response) { // Ajax local event to run function if zip code yields a result
+        $("#zipCode").detach();
+        $(".playlist").show();
+          console.log("i ran!!");
+        $('#generateZip').popover('dispose')
+      
+        weatherSuccess = true;
+        weather = response.weather[0].main;
+        var temp = response.main.temp;
+        currentTemp = Math.round(temp) + "°F";
+        currentWeather.temp = currentTemp;
+        currentWeather.city = response.name;
+        currentWeather.icon = "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png";
+        currentWeather.windspeed = response.wind.speed + "mph";
+        currentWeather.humidity = response.main.humidity + "%";
+        currentWeather.cloudiness = response.clouds.all + "%";
+        console.log(weather);
+        console.log(currentWeather);
+        if (weather === "Clear") {
+          sunnyLogic();
+          createplaylistContainer();
+          console.log(playlist);
+        } else if (weather === "Clouds") {
+          cloudyLogic();
+          createplaylistContainer();
+          console.log(playlist);
+        } else if (
+          weather === "Rain" ||
+          weather === "Drizzle" ||
+          weather === "Thunderstorm"
+        ) {
+          cloudyLogic();
+          createplaylistContainer();
+          console.log(playlist);
+        } else {
+          console.log("other");
+          sunnyLogic();
+          createplaylistContainer();
+          console.log(playlist);
+        }
+        console.log("openweather response ", response);
+        console.log("before weather");
+      }),
+      error: (function (){ // Log if zip code search yields an error
+          console.log('Not found');
+          $(function () {
+            console.log("i ran!!");
+            $('[data-toggle="popover"]').popover('show')
+            setTimeout(function () {
+              $('[data-toggle="popover"]').popover('dispose');
+          }, 2000);
+          });
+      })
     });
-  }
+  };
 
   /*everything below here goes into the dataButton*/
 
@@ -248,12 +268,12 @@ $(document).ready(function () {
         //get top played artists IDs
         var artist = response.items[i].id;
         artistIDArray.push(artist); //array of top played artist IDs
-      }
+      };
       console.log(response);
       console.log("calling getTracks");
       getTracks(0);
     });
-  }
+  };
 
   function getTracks(j) {
     var artistID = artistIDArray[j];
@@ -278,23 +298,23 @@ $(document).ready(function () {
         console.log("getTracks response", response);
         console.log("images", imageArray);
         genAudioFeatures();
-      }
+      };
     });
-  }
+  };
 
   function genidStr() {
     //generates track id string
     console.log("i did it! genID");
     var idJoin = trackidArray.join(",");
     return idJoin;
-  }
+  };
 
   function gentrackuriStr() {
     //generates track id string
     console.log("i did it!, gentrackuriStr");
     var uriJoin = objarrayUri.join(",");
     return uriJoin;
-  }
+  };
 
   function idLoop(response, i) {
     trackidArray.push(response.tracks[i].id);
@@ -307,8 +327,8 @@ $(document).ready(function () {
       idLoop(response, i);
     } else {
       console.log("idloop done");
-    }
-  }
+    };
+  };
 
   function genAudioFeatures() {
     var idStr = genidStr(); //calls function
@@ -326,23 +346,24 @@ $(document).ready(function () {
       for (var i = 0; i < response.audio_features.length; i++) {
         console.log("audio feature promise forloop");
         trackFeatureArray.push(response.audio_features[i]);
-      }
+      };
       console.log("calling maketrackObjs");
       maketrackObjs();
     });
-  }
+  };
 
-  function maketrackObjs() {
+  function maketrackObjs() { //makes objects for all of getTracks
     for (var i = 0; i < 100; i++) {
       var obj = {
         artist: artistNameArray[i],
         title: trackNameArray[i],
         image: imageArray[i],
-        energy: trackFeatureArray[i].energy,
+        energy: trackFeatureArray[i].energy, //metric for weather
         uri: trackURIArray[i],
         isSelected: false
       };
       trackObjArray.push(obj);
-    }
-  }
-});
+    };
+  };
+
+}); //end of "ready" function
